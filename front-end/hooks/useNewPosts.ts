@@ -1,4 +1,6 @@
+import { DEFAULT_URL } from '@/config';
 import Data from '@/interface/projectT.interface';
+
 
 interface DataType{
   data: {
@@ -7,10 +9,10 @@ interface DataType{
   errorCode: number
 }
 
-const useNewPosts = async() => {
+const UseNewPosts = async() => {
   try {
     const requestHeaders: HeadersInit = new Headers();
-    const res = await fetch(`https://localhost:8080/api/projects?size=3`, {
+    const res = await fetch(`${DEFAULT_URL}/api/projects?size=3`, {
         method: 'GET',
         headers: requestHeaders,
     });
@@ -39,4 +41,4 @@ const useNewPosts = async() => {
     };
 }
 }
-export default useNewPosts;
+export default UseNewPosts;

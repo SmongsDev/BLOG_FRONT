@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import useNewPosts from '@/hooks/useNewPosts';
+import UseNewPosts from '@/hooks/useNewPosts';
 import Data from '@/interface/projectT.interface';
 
 import { relativeTime } from '@/helpers/date';
@@ -18,7 +18,7 @@ const NewPosts = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await useNewPosts();
+      const result = await UseNewPosts();
       setData(result);
     }
 

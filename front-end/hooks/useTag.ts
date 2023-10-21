@@ -1,8 +1,9 @@
+import { DEFAULT_URL } from '@/config';
 import TagType from '@/interface/projectT.interface';
 
-const useTag = async() => {
+const UseTag = async() => {
     try {
-      const res = await fetch(`https://http://ec2-15-165-14-252.ap-northeast-2.compute.amazonaws.com:8080/api/tags`, {
+      const res = await fetch(`${DEFAULT_URL}/api/tags`, {
           method: 'GET'
       });
   
@@ -30,4 +31,4 @@ const useTag = async() => {
       };
   }
   }
-  export default useTag;
+  export default UseTag;

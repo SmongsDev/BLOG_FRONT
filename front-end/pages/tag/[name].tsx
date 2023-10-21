@@ -6,11 +6,11 @@ import { useRouter } from 'next/router';
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import useTag from '@/hooks/userTag';
 import TagList from '@/components/TagList';
 import clsx from 'clsx';
 import TagPreview from '@/contents/tag/TagPreview';
 import { DEFAULT_URL } from '@/config';
+import UseTag from '@/hooks/useTag';
 
 interface DataType{
   data: Data,
@@ -31,7 +31,7 @@ const TagPage = ({ repo }: ProjectDetailProps) => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await useTag();
+      const result = await UseTag();
       setTag(result);
     }
 
