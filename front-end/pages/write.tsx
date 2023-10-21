@@ -12,7 +12,7 @@ const ReactQuill = dynamic(() => import('react-quill'), {
     ssr: false
 })
 
-const DEFAULT_URL = "https://localhost:8080"
+const DEFAULT_URL = "http://ec2-15-165-14-252.ap-northeast-2.compute.amazonaws.com:8080"
 
 const modules = {
     toolbar: {

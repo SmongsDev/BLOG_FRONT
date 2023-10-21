@@ -1,18 +1,9 @@
-import { GITHUB_TOKEN } from "@/config";
 import TagType from '@/interface/projectT.interface';
 
 const useTag = async() => {
     try {
-      const requestHeaders: HeadersInit = new Headers();
-      if (GITHUB_TOKEN) {
-          requestHeaders.set('X-Github-Token', GITHUB_TOKEN);
-          console.log("토큰 있음: GITHUB_TOKEN");
-      } else {
-          console.log("토큰이 없어요!");
-      }
-      const res = await fetch(`https://javascriptkr-curly-space-rotary-phone-j76j6qjgwq72jj66-8080.app.github.dev/api/tags`, {
-          method: 'GET',
-          headers: requestHeaders,
+      const res = await fetch(`https://http://ec2-15-165-14-252.ap-northeast-2.compute.amazonaws.com:8080/api/tags`, {
+          method: 'GET'
       });
   
       if (!res.ok) {
