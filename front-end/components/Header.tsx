@@ -3,7 +3,6 @@ import { useSession } from "next-auth/react"
 import Link from "next/link";
 import DarkModeToggleButton from "./Dark-mode-toggle-button";
 import Head from "next/head";
-import headerNavLinks from "@/data/HeaderNavLink";
 import Image from 'next/image'
 // import AuthContext from "@/store/auth-context";
 

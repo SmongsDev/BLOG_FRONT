@@ -1,7 +1,6 @@
 import { DEFAULT_URL } from '@/config';
 import Data from '@/interface/projectT.interface';
 
-
 interface DataType{
   data: {
       content: Data[]

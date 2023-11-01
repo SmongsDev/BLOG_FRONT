@@ -18,17 +18,16 @@ const NewPosts = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await UseNewPosts();
+      const result = await UseNewPosts() as unknown as DataType;
       setData(result);
     }
-
     fetchData();
   }, []);
   
   if (!data) {
     return null;
   }
-  const datas: Data[] = data.repo?.data.content;
+  const datas: Data[] = data.data.content;
   return (
     <div className='flex flex-col gap-4'>
       <div
