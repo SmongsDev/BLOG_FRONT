@@ -13,7 +13,7 @@ import { DEFAULT_URL } from '@/config';
 import UseTag from '@/hooks/useTag';
 
 interface DataType{
-  data: Data,
+  data: Data[],
   errorCode: number
 }
 interface ProjectDetailProps {
@@ -32,7 +32,7 @@ const TagPage = ({ repo }: ProjectDetailProps) => {
   useEffect(() => {
     async function fetchData() {
       const result = await UseTag();
-      setTag(result);
+      setTag(result as unknown as TagProps);
     }
 
     fetchData();

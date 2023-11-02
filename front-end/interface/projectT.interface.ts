@@ -11,6 +11,6 @@ export default interface Data{
   hits: number,
   createdAt: string,
   category: string,
-  img?: string
-  hashTag?: TagType[];
+  img?: string,
+  hashTag?: TagType[]
 }
