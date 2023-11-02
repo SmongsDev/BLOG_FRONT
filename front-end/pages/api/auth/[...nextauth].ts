@@ -1,6 +1,7 @@
 import { DEFAULT_URL } from '@/config/index';
-import NextAuth from "next-auth";
+import NextAuth, { RequestInternal } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { User } from 'next-auth';
 
 const requestHeaders: HeadersInit = new Headers();
 requestHeaders.append('Content-Type', 'application/json')
@@ -14,7 +15,7 @@ export default NextAuth({
         email: { label: "user email", type: "email", placeholder: "user@email.com" },
         password: {  label: "password", type: "password" },
       },
-      authorize: async (credentials, req) => {
+      authorize: async (credentials: Record<"email" | "password", string> | undefined, req: Pick<RequestInternal, "body" | "query" | "headers" | "method">): Promise<User | null> => {
         try {
           const data = {
             email: credentials?.email,
@@ -30,9 +31,14 @@ export default NextAuth({
           if (res.ok) {
             const accessToken = res.headers.get("Access_Token") || null;
             const refreshToken = res.headers.get("Refresh_Token") || null;
-      
+        
             if (accessToken && refreshToken) {
-              return Promise.resolve({ accessToken, refreshToken });
+              const user: User = {
+                id: '1',
+                accessToken,
+                refreshToken,
+              };
+              return Promise.resolve(user);
             }
           }
           // 로그인 실패 처리
