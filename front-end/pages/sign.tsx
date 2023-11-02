@@ -1,8 +1,6 @@
 import { DEFAULT_URL } from "@/config";
 import { useState } from "react";
 
-export 
-
 const Sign = () => {
     const [nickname, setNickname] = useState("");
     const [email, setEmail] = useState("");
