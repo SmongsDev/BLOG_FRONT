@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import TagList from '@/components/TagList';
 import clsx from 'clsx';
 import TagPreview from '@/contents/tag/TagPreview';
-import { DEFAULT_URL } from '@/config';
 import UseTag from '@/hooks/useTag';
 
 interface DataType{
@@ -148,7 +147,7 @@ export async function getServerSideProps(context: { query: { name: string; }; })
 
   try {
     const requestHeaders: HeadersInit = new Headers();
-    const res = await fetch(`${DEFAULT_URL}/api/projects/${name}`, {
+    const res = await fetch(`${process.env.DEFAULT_URL}/api/projects/${name}`, {
       method: 'GET',
       headers: requestHeaders,
     });

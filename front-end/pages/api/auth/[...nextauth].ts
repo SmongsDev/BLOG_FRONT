@@ -1,4 +1,3 @@
-import { DEFAULT_URL } from '@/config/index';
 import NextAuth, { RequestInternal } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from 'next-auth';
@@ -27,7 +26,7 @@ export default NextAuth({
             headers: requestHeaders,
             body: JSONdata,
           };
-          const res = await fetch(`${DEFAULT_URL}/auth/login`, options);
+          const res = await fetch(`${process.env.DEFAULT_URL}/auth/login`, options);
           if (res.ok) {
             const accessToken = res.headers.get("Access_Token") || null;
             const refreshToken = res.headers.get("Refresh_Token") || null;

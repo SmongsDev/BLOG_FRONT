@@ -12,8 +12,6 @@ const ReactQuill = dynamic(() => import('react-quill'), {
     ssr: false
 })
 
-const DEFAULT_URL = "http://ec2-15-165-14-252.ap-northeast-2.compute.amazonaws.com:8080"
-
 const modules = {
     toolbar: {
         container: [
@@ -44,7 +42,7 @@ export async function createPost(title: string, content: string, tags: string[],
     console.log(body);
 
     try {
-        const res = await fetch(`${DEFAULT_URL}/api/project/create`, {
+        const res = await fetch(`${process.env.DEFAULT_URL}/api/project/create`, {
             method: 'POST',
             headers: requestHeaders,
             body: body

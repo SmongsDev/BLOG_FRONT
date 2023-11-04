@@ -1,6 +1,5 @@
 import Layout from '@/components/Layout';
 import Page from '@/components/content-layouts/Page';
-import { DEFAULT_URL } from '@/config';
 import Data from '@/interface/projectT.interface';
 import { useRouter } from 'next/router';
 import { format, parseISO } from 'date-fns';
@@ -105,7 +104,7 @@ const BlogDetailPage = ({ repo }: ProjectDetailProps) => {
                 shortname='smongs'
                 config={
                   {
-                    url: DEFAULT_URL,
+                    url: process.env.DEFAULT_URL,
                     identifier: String(repo.data.id),
                     title: repo.data.title,
                     language: 'ko',
@@ -123,7 +122,7 @@ export async function getServerSideProps(context: { query: { id: number; }; }) {
 
   try {
     const requestHeaders: HeadersInit = new Headers();
-    const res = await fetch(`${DEFAULT_URL}/api/project/${id}`, {
+    const res = await fetch(`${process.env.DEFAULT_URL}/api/project/${id}`, {
       method: 'GET',
       headers: requestHeaders,
     });
